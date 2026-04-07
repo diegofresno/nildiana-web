@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Dra. Nildiana Cedeño — Medicina Estética Premium en Asturias</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -448,7 +448,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 80px 40px 40px;
+            padding: calc(80px + env(safe-area-inset-top, 0px)) 40px 40px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s var(--transition);
@@ -2259,13 +2259,13 @@
             }
 
             .nav {
-                padding: 16px 24px;
+                padding: calc(16px + env(safe-area-inset-top, 0px)) 24px 16px;
             }
 
             .nav.scrolled {
                 background: rgba(26, 26, 26, 0.95);
                 backdrop-filter: blur(20px);
-                padding: 12px 24px;
+                padding: calc(12px + env(safe-area-inset-top, 0px)) 24px 12px;
                 box-shadow: 0 1px 20px rgba(0,0,0,0.2);
             }
 
