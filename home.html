@@ -1,0 +1,3344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Nildiana Cedeño — Medicina Estética Premium en Asturias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════
+           VARIABLES & RESET
+        ═══════════════════════════════════════════ */
+        :root {
+            --gold: #C5A467;
+            --gold-light: #D4BA82;
+            --gold-dark: #A8894E;
+            --cream: #FAF7F2;
+            --cream-dark: #F0EBE1;
+            --charcoal: #1A1A1A;
+            --charcoal-light: #2D2D2D;
+            --text-dark: #1A1A1A;
+            --text-medium: #555555;
+            --text-light: #888888;
+            --white: #FFFFFF;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+            --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--sans);
+            font-weight: 300;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 48px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ═══════════════════════════════════════════
+           UTILITY
+        ═══════════════════════════════════════════ */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-weight: 300;
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        /* ═══════════════════════════════════════════
+           PRELOADER
+        ═══════════════════════════════════════════ */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--charcoal);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-text {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 6px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* ═══════════════════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 22px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s var(--transition);
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 14px 50px;
+            box-shadow: 0 1px 30px rgba(0,0,0,0.06);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            height: 22px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.5s ease;
+        }
+
+        .nav.scrolled .nav-logo img {
+            filter: brightness(0);
+        }
+
+        /* --- Desktop menu --- */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav.scrolled .nav-links > li > a {
+            color: var(--text-medium);
+        }
+
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s var(--transition);
+        }
+
+        .nav-links > li > a:hover::after,
+        .nav-links > li:hover > a::after {
+            width: 100%;
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li:hover > a {
+            color: var(--gold);
+        }
+
+        /* Dropdown arrow */
+        .has-dropdown > a .drop-arrow {
+            font-size: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .has-dropdown:hover > a .drop-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* --- Dropdown menu --- */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            min-width: 240px;
+            background: var(--white);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            border-top: 2px solid var(--gold);
+            list-style: none;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.35s var(--transition);
+            pointer-events: none;
+        }
+
+        .has-dropdown:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 10px 28px;
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--text-medium);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown li a::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .dropdown li a:hover {
+            color: var(--gold);
+            padding-left: 36px;
+        }
+
+        .dropdown li a:hover::before {
+            width: 10px;
+        }
+
+        /* --- Mega dropdown for treatments --- */
+        .mega-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 520px;
+            background: var(--white);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border-top: 2px solid var(--gold);
+            padding: 30px 36px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s var(--transition);
+            pointer-events: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 50px;
+        }
+
+        .mega-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .has-mega:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .mega-dropdown a {
+            display: block;
+            padding: 9px 0;
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--text-medium);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .mega-dropdown a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .mega-title {
+            grid-column: 1 / -1;
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* CTA button in nav */
+        .nav-cta {
+            font-family: var(--sans) !important;
+            font-size: 0.68rem !important;
+            font-weight: 500 !important;
+            letter-spacing: 2.5px !important;
+            padding: 13px 34px !important;
+            background: var(--gold) !important;
+            border: none !important;
+            color: var(--white) !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark) !important;
+            color: var(--white) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(197, 164, 103, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Phone in nav */
+        .nav-phone {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.7);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .nav.scrolled .nav-phone {
+            color: var(--text-medium);
+        }
+
+        .nav-phone:hover {
+            color: var(--gold);
+        }
+
+        .nav-phone::after {
+            display: none !important;
+        }
+
+        /* --- Hamburger toggle --- */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all 0.4s ease;
+            transform-origin: center;
+        }
+
+        .nav.scrolled .nav-toggle span {
+            background: var(--text-dark);
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background: var(--white);
+        }
+
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+            background: var(--white);
+        }
+
+        /* --- Mobile fullscreen menu --- */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--charcoal);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 40px 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s var(--transition);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+        }
+
+        .mobile-menu-links > li {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .mobile-menu-links > li > a {
+            display: block;
+            padding: 18px 0;
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-links > li > a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-submenu {
+            list-style: none;
+            padding: 0 0 16px 20px;
+            display: none;
+        }
+
+        .mobile-submenu.open {
+            display: block;
+        }
+
+        .mobile-submenu li a {
+            display: block;
+            padding: 8px 0;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-submenu li a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .mobile-menu-footer a {
+            display: block;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 10px;
+        }
+
+        .mobile-menu-footer .mobile-cta {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 16px 36px;
+            background: var(--gold);
+            color: var(--white);
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════
+           HERO SLIDER
+        ═══════════════════════════════════════════ */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background: var(--charcoal);
+            overflow: hidden;
+        }
+
+        /* --- Dot pattern overlay (always visible, like Vegas) --- */
+        .dot-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.15) 0.5px, transparent 0.5px);
+            background-size: 5px 5px;
+            opacity: 0.3;
+        }
+
+        /* --- Slides --- */
+        .slide {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out;
+        }
+
+        .slide.active {
+            pointer-events: auto;
+            z-index: 3;
+            opacity: 1;
+        }
+
+        .slide.leaving {
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out;
+        }
+
+        /* Background image + Ken Burns */
+        .slide-bg {
+            position: absolute;
+            inset: -40px;
+            background-size: cover;
+            background-position: center top;
+            transform: scale(1.05);
+        }
+
+        .slide.active .slide-bg {
+            animation: kenBurns 8s ease-in-out both;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1) translate(-0.3%, -0.2%); }
+        }
+
+        /* Overlay */
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(26,26,26,0.88) 0%, rgba(26,26,26,0.55) 50%, rgba(26,26,26,0.25) 100%),
+                linear-gradient(to top, rgba(26,26,26,0.6) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        /* Decorative gold line */
+        .slide-overlay::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+        }
+
+
+        /* Content */
+        .slide-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 8%;
+            max-width: 750px;
+        }
+
+        .slide-inner {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0s ease 0s, transform 0s ease 0s;
+        }
+
+        .slide.active .slide-inner {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.7s ease 0.8s, transform 0.9s var(--transition) 0.7s;
+        }
+
+        /* Staggered text elements */
+        .slide.active .slide-label {
+            animation: textReveal 0.6s var(--transition) 0.9s both;
+        }
+
+        .slide.active .slide-title {
+            animation: textReveal 0.7s var(--transition) 1.05s both;
+        }
+
+        .slide.active .slide-description {
+            animation: textReveal 0.6s var(--transition) 1.25s both;
+        }
+
+        .slide.active .slide-buttons {
+            animation: textReveal 0.5s var(--transition) 1.4s both;
+        }
+
+        .slide:not(.active) .slide-label,
+        .slide:not(.active) .slide-title,
+        .slide:not(.active) .slide-description,
+        .slide:not(.active) .slide-buttons {
+            animation: none;
+            opacity: 0;
+        }
+
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+                filter: blur(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .slide-label {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.68rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .slide-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .slide-title {
+            font-family: var(--serif);
+            font-weight: 300;
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            line-height: 1.06;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .slide-title em {
+            font-style: italic;
+            color: var(--gold);
+            display: block;
+        }
+
+        .slide-description {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.55);
+            max-width: 480px;
+            margin-bottom: 44px;
+        }
+
+        .slide-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--gold);
+            color: var(--white);
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(197, 164, 103, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--white);
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* --- Navigation dots --- */
+        .slider-dots {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .slider-dot::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: var(--gold);
+            transform: scale(0);
+            transition: transform 0.4s var(--transition);
+        }
+
+        .slider-dot.active {
+            border-color: var(--gold);
+            transform: scale(1.15);
+        }
+
+        .slider-dot.active::after {
+            transform: scale(1);
+        }
+
+        .slider-dot:hover {
+            border-color: var(--gold);
+        }
+
+        /* --- Progress bar --- */
+        .slider-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gold);
+            z-index: 10;
+            width: 0%;
+            transition: none;
+        }
+
+        .slider-progress.running {
+            width: 100%;
+            transition: width 7s linear;
+        }
+
+        /* --- Counter --- */
+        .slider-counter {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            z-index: 10;
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+        }
+
+        .slider-counter .current {
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* --- Arrows --- */
+        .slider-arrows {
+            position: absolute;
+            bottom: 40px;
+            left: 8%;
+            z-index: 10;
+            display: flex;
+            gap: 6px;
+        }
+
+        .slider-arrow {
+            width: 52px;
+            height: 52px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+        }
+
+        .slider-arrow:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* --- Scroll indicator --- */
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .hero-scroll span {
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.3; transform: scaleY(0.5); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════
+           MARQUEE / BRAND STRIP
+        ═══════════════════════════════════════════ */
+        .brand-strip {
+            background: var(--cream);
+            padding: 30px 0;
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 60px;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .marquee-item::after {
+            content: '✦';
+            color: var(--gold);
+            font-size: 0.5rem;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ═══════════════════════════════════════════
+           ABOUT / INTRO
+        ═══════════════════════════════════════════ */
+        .about {
+            padding: 140px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            background: var(--cream);
+            overflow: visible;
+        }
+
+        /* Marco dorado offset */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            right: 16px;
+            bottom: 16px;
+            border: 1px solid rgba(197,164,103,0.4);
+            z-index: -1;
+        }
+
+        /* Patrón decorativo esquina inferior derecha */
+        .about-image::after {
+            content: '✦✦✦';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            font-size: 0.5rem;
+            letter-spacing: 8px;
+            color: rgba(197,164,103,0.25);
+            writing-mode: vertical-rl;
+            z-index: -1;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: url('https://dranildianacedeno.es/wp-content/uploads/2024/03/Nildiana-Liftera-124-modified-683x1024.jpg') center top/cover no-repeat;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.1);
+        }
+
+        .about-text p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text-medium);
+            margin-bottom: 24px;
+        }
+
+        .about-signature {
+            margin-top: 40px;
+        }
+
+        .about-signature .name {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .about-signature .title {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stat-item .stat-number {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-item .stat-label {
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* ═══════════════════════════════════════════
+           AWARD STRIP
+        ═══════════════════════════════════════════ */
+        .award-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 900;
+            background: var(--gold);
+            padding: 14px 0;
+            text-align: center;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+
+        .award-strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .award-strip-icon {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .award-strip-text {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .award-strip-separator {
+            width: 1px;
+            height: 16px;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .award-strip-sub {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .award-strip-inner { flex-wrap: wrap; gap: 8px; }
+            .award-strip-separator { display: none; }
+            .award-strip-text { font-size: 0.68rem; }
+        }
+
+        /* ═══════════════════════════════════════════
+           AWARDS & CERTIFICATIONS
+        ═══════════════════════════════════════════ */
+        .awards {
+            padding: 100px 0;
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(197,164,103,0.06) 0%, transparent 60%);
+        }
+
+        .awards .container { position: relative; z-index: 1; }
+
+        .awards-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .awards-header .section-title { color: var(--white); }
+
+        .awards-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            align-items: start;
+        }
+
+        .awards-divider { display: none; }
+
+        .award-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.5s ease;
+            cursor: default;
+        }
+
+        .award-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .award-img {
+            width: 100%;
+            max-width: 120px;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: grayscale(0.2) brightness(0.9);
+        }
+
+        .award-item:hover .award-img {
+            transform: scale(1.08);
+            filter: grayscale(0) brightness(1);
+        }
+
+        .award-img.square { }
+
+        .award-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .award-name {
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            max-width: 130px;
+            line-height: 1.4;
+        }
+
+        .awards-divider {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(197,164,103,0.3), transparent);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .awards-row { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        }
+
+        /* ═══════════════════════════════════════════
+           SERVICES / TREATMENTS
+        ═══════════════════════════════════════════ */
+        .services {
+            padding: 140px 0;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(197,164,103,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 90%, rgba(197,164,103,0.05) 0%, transparent 50%),
+                linear-gradient(180deg, #111116 0%, #1a1a22 40%, #1a1a22 60%, #111116 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(60deg, transparent 48.5%, rgba(197,164,103,0.025) 49%, rgba(197,164,103,0.025) 51%, transparent 51.5%);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .services .section-title {
+            color: var(--white);
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .services-header p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 0;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.06);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        /* Full image card — text overlaid */
+        .service-card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transition: transform 0.8s var(--transition);
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.4);
+        }
+
+        /* Dark gradient overlay */
+        .service-card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                rgba(26,26,26,0.92) 0%,
+                rgba(26,26,26,0.4) 40%,
+                rgba(26,26,26,0.1) 70%,
+                transparent 100%);
+            transition: all 0.6s ease;
+        }
+
+        .service-card .service-card-image::after {
+            background: linear-gradient(to top,
+                rgba(26,26,26,0.95) 0%,
+                rgba(26,26,26,0.5) 50%,
+                rgba(26,26,26,0.25) 100%);
+        }
+
+        /* Gold shimmer on hover */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(197,164,103,0.12) 0%, transparent 50%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .service-card::before {
+            opacity: 1;
+        }
+
+        /* Top gold line */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            z-index: 4;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s var(--transition);
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover .service-card-image {
+            transform: scale(1.06);
+        }
+
+        /* Body sits on top of image */
+        .service-card-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 28px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 28px;
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .service-card p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.4s ease 0.1s;
+        }
+
+        .service-card p {
+            max-height: 80px;
+            opacity: 1;
+        }
+
+        .service-link {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.4s ease 0.15s;
+        }
+
+        .service-card .service-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-link:hover {
+            gap: 14px;
+        }
+
+        .service-link .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(197,164,103,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transform: translateY(-4px);
+        }
+
+        /* Imágenes individuales por tarjeta */
+        .service-card:nth-child(1) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2024/03/Nildiana-Liftera-124-modified-683x1024.jpg'); }
+        .service-card:nth-child(2) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/Botox-859x1024.jpg'); }
+        .service-card:nth-child(3) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/ojeras-859x1024.jpg'); }
+        .service-card:nth-child(4) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/labios2-859x1024.jpg'); }
+        .service-card:nth-child(5) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/nasogeniano-859x1024.jpg'); background-position: top; }
+        .service-card:nth-child(6) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/codigo-de-barras-1-859x1024.jpg'); }
+        .service-card:nth-child(7) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/Bruxismo-859x1024.jpg'); }
+        .service-card:nth-child(8) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/hilos-tensores-859x1024.jpg'); }
+        .service-card:nth-child(9) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/lineas-de-marioneta-859x1024.jpg'); }
+        .service-card:nth-child(10) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/peeling-859x1024.jpg'); }
+        .service-card:nth-child(11) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/pomulos-859x1024.jpg'); }
+        .service-card:nth-child(12) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/gingival-859x1024.jpg'); }
+        .service-card:nth-child(13) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/mesoterapia-859x1024.jpg'); }
+        .service-card:nth-child(14) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/hiperhidrosis-859x1024.jpg'); }
+        .service-card:nth-child(15) .service-card-image { background-image: url('https://dranildianacedeno.es/wp-content/uploads/2021/01/Bruxismo.jpg'); background-position: top; }
+
+        /* ═══════════════════════════════════════════
+           FEATURED TREATMENT (LIFTERA)
+        ═══════════════════════════════════════════ */
+        .featured {
+            padding: 0;
+            background: var(--cream);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .featured-image {
+            background: url('https://dranildianacedeno.es/wp-content/uploads/2024/03/Nildiana-Liftera-124-modified-683x1024.jpg') center top/cover no-repeat;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .featured-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent 70%, var(--cream) 100%);
+        }
+
+        .featured-content {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: var(--gold);
+            color: var(--white);
+            font-family: var(--sans);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            align-self: flex-start;
+        }
+
+        .featured-content h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .featured-content h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .featured-content p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+
+        .featured-benefits {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .featured-benefits li {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            padding: 10px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .featured-benefits li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 8px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════
+           PHILOSOPHY / VALUES
+        ═══════════════════════════════════════════ */
+        .philosophy {
+            padding: 140px 0;
+            background: var(--white);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .philosophy-card {
+            text-align: center;
+            padding: 50px 30px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        }
+
+        .philosophy-number {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .philosophy-card p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        /* ═══════════════════════════════════════════
+           TESTIMONIALS
+        ═══════════════════════════════════════════ */
+        .testimonials {
+            padding: 140px 0;
+            background: url('uploads/uploads/2022/08/Clinica-Nildiana-1-web.jpg') center/cover no-repeat fixed;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(250, 247, 242, 0.92);
+        }
+
+        .testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .testimonials .section-title {
+            color: var(--text-dark);
+        }
+
+        .testimonials-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 10px;
+        }
+
+        .testimonial-slider::-webkit-scrollbar { display: none; }
+
+        .testimonial-card {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            padding: 44px 36px;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .testimonial-arrow {
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-medium);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-arrow:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .testimonial-counter {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: var(--serif);
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-top: 8px;
+        }
+
+        /* ═══════════════════════════════════════════
+           BEFORE / AFTER
+        ═══════════════════════════════════════════ */
+        .results {
+            padding: 140px 0;
+            background: var(--cream);
+        }
+
+        .results-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .results-header p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .result-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .result-image {
+            aspect-ratio: 1/1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .result-card:nth-child(1) .result-image {
+            background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80');
+        }
+
+        .result-card:nth-child(2) .result-image {
+            background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80');
+        }
+
+        .result-card:nth-child(3) .result-image {
+            background-image: url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80');
+        }
+
+        .result-info {
+            padding: 24px;
+        }
+
+        .result-info h4 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .result-info span {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        /* ═══════════════════════════════════════════
+           CTA BANNER
+        ═══════════════════════════════════════════ */
+        .cta-banner {
+            padding: 140px 0;
+            background: url('https://dranildianacedeno.es/wp-content/uploads/2021/12/Dra-nildiana-cedeno4.jpg') center top / cover no-repeat fixed;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.7);
+        }
+
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(197, 164, 103, 0.25) 0%, transparent 50%),
+                linear-gradient(315deg, rgba(197, 164, 103, 0.15) 0%, transparent 50%);
+        }
+
+        .cta-banner h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-banner p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 50px;
+            background: var(--white);
+            color: var(--gold-dark);
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .btn-white:hover {
+            background: var(--charcoal);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        /* ═══════════════════════════════════════════
+           LOCATIONS / CENTROS
+        ═══════════════════════════════════════════ */
+        .locations {
+            padding: 140px 0;
+            background: var(--charcoal);
+        }
+
+        .locations-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 70px;
+        }
+
+        .locations-header .section-title {
+            color: var(--white);
+        }
+
+        .locations-header p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .location-card {
+            background: var(--charcoal-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+            transition: all 0.5s var(--transition);
+        }
+
+        .location-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .location-map {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .location-map::after {
+            display: none;
+        }
+
+        .location-info {
+            padding: 35px 40px 40px;
+        }
+
+        .location-city {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .location-name {
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .location-details {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .location-details li {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.5);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .location-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 6px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .location-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .location-rating .stars {
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .location-rating .score {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .location-rating .count {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            margin-top: 8px;
+        }
+
+        .location-btn:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+
+        @media (max-width: 768px) {
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+           INSTAGRAM FEED
+        ═══════════════════════════════════════════ */
+        .instagram {
+            padding: 100px 0 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .instagram h3 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .instagram p {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 3px;
+        }
+
+        .instagram-item {
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .instagram-item:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&q=80'); }
+        .instagram-item:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80'); }
+        .instagram-item:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80'); }
+        .instagram-item:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'); }
+        .instagram-item:nth-child(5) { background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=400&q=80'); }
+        .instagram-item:nth-child(6) { background-image: url('https://images.unsplash.com/photo-1629909615957-be38d6ed6a4e?w=400&q=80'); }
+
+        .instagram-item:hover {
+            opacity: 0.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════ */
+        .footer {
+            background: var(--charcoal);
+            padding: 100px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand .footer-logo {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.4);
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════
+           ANIMATIONS (scroll-triggered)
+        ═══════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .philosophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .nav {
+                padding: 20px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .slide-content {
+                padding: 0 24px;
+                align-items: flex-end;
+                padding-bottom: 120px;
+            }
+
+            .slide-buttons {
+                flex-direction: column;
+            }
+
+            .slider-dots {
+                right: 20px;
+            }
+
+            .slider-arrows {
+                left: 24px;
+            }
+
+            .slider-counter {
+                right: 20px;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 60px 24px;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testimonial-card {
+                flex: 0 0 280px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .stats-row {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-text">DRA. NILDIANA CEDEÑO</div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <a href="#" class="nav-logo"><img src="dranildianacedeno-logo-250x26.png" alt="Dra. Nildiana Cedeño"></a>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre mí</a></li>
+            <li class="has-dropdown has-mega">
+                <a href="#services">Tratamientos <span class="drop-arrow">▾</span></a>
+                <div class="mega-dropdown" style="grid-template-columns: 1fr 1fr 1fr; min-width: 680px;">
+                    <div class="mega-col">
+                        <div class="mega-title">Facial</div>
+                        <a href="#">Bruxismo</a>
+                        <a href="#">Código de barras</a>
+                        <a href="#">Flacidez facial</a>
+                        <a href="#">Hilos tensores</a>
+                        <a href="#">Neuromoduladores</a>
+                        <a href="#">Labios</a>
+                        <a href="#">Líneas de marioneta</a>
+                        <a href="#">Ojeras</a>
+                        <a href="#">Óvalo facial</a>
+                        <a href="#">Tercio medio</a>
+                        <a href="#">Peeling químico</a>
+                        <a href="#">Revitalización facial</a>
+                        <a href="#">Rinomodelación sin cirugía</a>
+                        <a href="#">Sonrisa gingival</a>
+                        <a href="#">Surco nasogeniano</a>
+                        <a href="#">Venus Legacy</a>
+                    </div>
+                    <div class="mega-col">
+                        <div class="mega-title">Corporal</div>
+                        <a href="#">Hiperhidrosis axilar</a>
+                        <a href="#">Mesoterapia corporal</a>
+                        <a href="#">Reafirmar piel y celulitis</a>
+                    </div>
+                    <div class="mega-col" style="background: var(--charcoal); margin: -30px -36px -30px 0; padding: 30px 36px; border-radius: 0;">
+                        <div class="mega-title" style="color: var(--gold); border-bottom-color: rgba(255,255,255,0.1);">★ Destacados</div>
+                        <a href="liftera.html" style="font-weight: 500; color: var(--white); border-bottom-color: rgba(255,255,255,0.06);">Liftera</a>
+                        <a href="#" style="font-weight: 500; color: var(--white); border-bottom-color: rgba(255,255,255,0.06);">Aerolase</a>
+                    </div>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <a href="#locations">Clínicas <span class="drop-arrow">▾</span></a>
+                <ul class="dropdown">
+                    <li><a href="#">Clínica en Avilés</a></li>
+                    <li><a href="#">Centro Médico Argia — Oviedo</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#contact" class="nav-cta">Contactar</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#about">Sobre mí</a></li>
+            <li>
+                <a href="#services" class="mobile-menu-parent">Tratamientos</a>
+                <ul class="mobile-submenu open">
+                    <li><a href="#" style="color: var(--gold); font-weight: 500; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;">— Destacados</a></li>
+                    <li><a href="liftera.html" style="color: var(--white); font-weight: 400;">Liftera</a></li>
+                    <li><a href="#" style="color: var(--white); font-weight: 400;">Aerolase</a></li>
+                    <li><a href="#" style="color: var(--gold); font-weight: 500; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 12px;">— Facial</a></li>
+                    <li><a href="#">Bruxismo</a></li>
+                    <li><a href="#">Código de barras</a></li>
+                    <li><a href="#">Flacidez facial</a></li>
+                    <li><a href="#">Hilos tensores</a></li>
+                    <li><a href="#">Neuromoduladores</a></li>
+                    <li><a href="#">Labios</a></li>
+                    <li><a href="#">Líneas de marioneta</a></li>
+                    <li><a href="#">Ojeras</a></li>
+                    <li><a href="#">Óvalo facial</a></li>
+                    <li><a href="#">Tercio medio</a></li>
+                    <li><a href="#">Peeling químico</a></li>
+                    <li><a href="#">Revitalización facial</a></li>
+                    <li><a href="#">Rinomodelación sin cirugía</a></li>
+                    <li><a href="#">Sonrisa gingival</a></li>
+                    <li><a href="#">Surco nasogeniano</a></li>
+                    <li><a href="#">Venus Legacy</a></li>
+                    <li><a href="#" style="color: var(--gold); font-weight: 500; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 12px;">— Corporal</a></li>
+                    <li><a href="#">Hiperhidrosis axilar</a></li>
+                    <li><a href="#">Mesoterapia corporal</a></li>
+                    <li><a href="#">Reafirmar piel y celulitis</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#locations">Clínicas</a>
+                <ul class="mobile-submenu open">
+                    <li><a href="#">Clínica en Avilés</a></li>
+                    <li><a href="#">Centro Médico Argia — Oviedo</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <a href="tel:+34649641293">✆ (+34) 649 64 12 93</a>
+            <a href="mailto:dranildianacedeno@gmail.com">dranildianacedeno@gmail.com</a>
+            <a href="#contact" class="mobile-cta">Contactar →</a>
+        </div>
+    </div>
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" id="heroSlider">
+
+        <!-- Slide 1 — Tratamiento Liftera -->
+        <div class="slide active" data-index="0">
+            <div class="slide-bg" style="background-image: url('uploads/uploads/2024/02/Nildiana-Liftera-160-2.jpg'); background-position: center center;"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-inner">
+                    <div class="slide-label">Medicina Estética en Oviedo y Avilés</div>
+                    <h1 class="slide-title">
+                        Tu belleza,<br>
+                        <em>nuestra ciencia</em>
+                    </h1>
+                    <p class="slide-description">
+                        Tratamientos personalizados con la última tecnología y el cuidado
+                        que mereces. Dos centros en Asturias para estar más cerca de ti.
+                    </p>
+                    <div class="slide-buttons">
+                        <a href="#contact" class="btn-primary">Contactar <span>→</span></a>
+                        <a href="#services" class="btn-secondary">Ver tratamientos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 — Consulta con paciente -->
+        <div class="slide" data-index="1">
+            <div class="slide-bg" style="background-image: url('uploads/uploads/2022/08/Clinica-Nildiana-15-web.jpg'); background-position: center center;"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-inner">
+                    <div class="slide-label">Atención personalizada</div>
+                    <h1 class="slide-title">
+                        Cada paciente<br>
+                        <em>es único</em>
+                    </h1>
+                    <p class="slide-description">
+                        Consultas personalizadas donde escuchamos tus necesidades
+                        y diseñamos el plan de tratamiento ideal para ti.
+                    </p>
+                    <div class="slide-buttons">
+                        <a href="#contact" class="btn-primary">Contactar <span>→</span></a>
+                        <a href="#about" class="btn-secondary">Conocer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 — Tratamiento corporal -->
+        <div class="slide" data-index="2">
+            <div class="slide-bg" style="background-image: url('uploads/uploads/2022/08/Clinica-Nildiana-19-web.jpg'); background-position: center center;"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-inner">
+                    <div class="slide-label">Tecnología de vanguardia</div>
+                    <h1 class="slide-title">
+                        Tratamientos<br>
+                        <em>de última generación</em>
+                    </h1>
+                    <p class="slide-description">
+                        Equipamiento avanzado y técnicas innovadoras para ofrecerte
+                        los mejores resultados con total seguridad y profesionalidad.
+                    </p>
+                    <div class="slide-buttons">
+                        <a href="#services" class="btn-primary">Ver tratamientos <span>→</span></a>
+                        <a href="#contact" class="btn-secondary">Pedir cita</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 — Retrato profesional -->
+        <div class="slide" data-index="3">
+            <div class="slide-bg" style="background-image: url('uploads/uploads/2021/12/Dra-nildiana-cedeno4.jpg'); background-position: center 30%;"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-inner">
+                    <div class="slide-label">Clínicas en Oviedo y Avilés</div>
+                    <h1 class="slide-title">
+                        Confianza y<br>
+                        <em>cercanía</em>
+                    </h1>
+                    <p class="slide-description">
+                        Más de 5.000 pacientes satisfechos. La Dra. Nildiana Cedeño y su equipo
+                        te acompañan en cada paso hacia tu mejor versión.
+                    </p>
+                    <div class="slide-buttons">
+                        <a href="#contact" class="btn-primary">Reservar ahora <span>→</span></a>
+                        <a href="#about" class="btn-secondary">Conocer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dot pattern overlay -->
+        <div class="dot-overlay"></div>
+
+        <!-- Navigation dots -->
+        <div class="slider-dots">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+        </div>
+
+        <!-- Arrows -->
+        <div class="slider-arrows">
+            <button class="slider-arrow" id="sliderPrev">←</button>
+            <button class="slider-arrow" id="sliderNext">→</button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="slider-progress" id="sliderProgress"></div>
+
+        <!-- Counter -->
+        <div class="slider-counter">
+            <span class="current" id="sliderCurrent">01</span> / 04
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+
+    </section>
+
+    <!-- BRAND STRIP -->
+    <div class="brand-strip">
+        <div class="marquee">
+            <span class="marquee-item">Tratamientos Faciales</span>
+            <span class="marquee-item">Medicina Estética Avanzada</span>
+            <span class="marquee-item">Tecnología de Vanguardia</span>
+            <span class="marquee-item">Resultados Naturales</span>
+            <span class="marquee-item">Atención Personalizada</span>
+            <span class="marquee-item">Liftera</span>
+            <span class="marquee-item">Tratamientos Faciales</span>
+            <span class="marquee-item">Medicina Estética Avanzada</span>
+            <span class="marquee-item">Tecnología de Vanguardia</span>
+            <span class="marquee-item">Resultados Naturales</span>
+            <span class="marquee-item">Atención Personalizada</span>
+            <span class="marquee-item">Liftera</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <div class="about-image-placeholder"></div>
+                </div>
+                <div class="about-text reveal">
+                    <span class="section-label">Sobre mí</span>
+                    <h2 class="section-title">
+                        Ciencia, arte y <em>dedicación</em>
+                    </h2>
+                    <div class="gold-line"></div>
+                    <p>
+                        Con años de experiencia en medicina estética, mi compromiso es ofrecer
+                        tratamientos que realcen tu belleza natural con la máxima seguridad
+                        y profesionalidad.
+                    </p>
+                    <p>
+                        Cada paciente es único. Por eso, diseño planes de tratamiento
+                        completamente personalizados, utilizando las técnicas más avanzadas
+                        y la tecnología de última generación.
+                    </p>
+                    <div class="about-signature">
+                        <div class="name">Dra. Nildiana Cedeño</div>
+                        <div class="title">Especialista en Medicina Estética</div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-number">+10</div>
+                            <div class="stat-label">Años de experiencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Clínicas en Asturias</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">+20</div>
+                            <div class="stat-label">Tratamientos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header reveal">
+                <span class="section-label">Nuestros tratamientos</span>
+                <h2 class="section-title">
+                    Excelencia en cada <em>tratamiento</em>
+                </h2>
+                <p>
+                    Descubre nuestra selección de tratamientos de medicina estética diseñados
+                    para realzar tu belleza natural con resultados visibles y duraderos.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Liftera</h3>
+                        <p>Lifting sin agujas con ultrasonido focalizado. Redefine el contorno facial y combate la flacidez.</p>
+                        <a href="liftera.html" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Neuromoduladores</h3>
+                        <p>Suaviza arrugas dinámicas manteniendo la expresividad natural del rostro con resultados precisos.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Ojeras</h3>
+                        <p>Tratamiento especializado para eliminar ojeras oscuras y bolsas, devolviendo frescura a tu mirada.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Labios</h3>
+                        <p>Aumento y perfilado de labios con ácido hialurónico para un resultado natural y armonioso.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Surco nasogeniano</h3>
+                        <p>Relleno y suavizado de los surcos nasolabiales para un rostro más descansado y juvenil.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Código de barras</h3>
+                        <p>Eliminación de las líneas verticales del labio superior para una piel lisa y rejuvenecida.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Bruxismo</h3>
+                        <p>Tratamiento con neuromoduladores para aliviar la tensión mandibular y afinar el contorno facial.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Hilos tensores</h3>
+                        <p>Efecto lifting inmediato con estimulación natural de colágeno para una piel más firme y definida.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Líneas de marioneta</h3>
+                        <p>Corrige los pliegues que van desde la comisura de los labios hacia el mentón.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Peeling químico</h3>
+                        <p>Renovación celular profunda para mejorar textura, manchas e imperfecciones de la piel.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Pómulos</h3>
+                        <p>Restauración del volumen y proyección de los pómulos para un rostro más estructurado.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Sonrisa gingival</h3>
+                        <p>Corrección de la exposición excesiva de encía al sonreír para una sonrisa más equilibrada.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Mesoterapia corporal</h3>
+                        <p>Tratamiento reafirmante y reductor para remodelar y tonificar el cuerpo de forma no invasiva.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Hiperhidrosis axilar</h3>
+                        <p>Solución eficaz contra la sudoración excesiva con resultados duraderos y sin cirugía.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-image"></div>
+                    <div class="service-card-body">
+                        <h3>Flacidez facial</h3>
+                        <p>Tratamientos combinados para combatir la pérdida de firmeza y recuperar la elasticidad de la piel.</p>
+                        <a href="#" class="service-link">Descubrir <span class="arrow">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED TREATMENT -->
+    <section class="featured">
+        <div class="featured-grid">
+            <div class="featured-image"></div>
+            <div class="featured-content reveal">
+                <div class="featured-badge">★ Tratamiento destacado</div>
+                <h2>Liftera:<br><em>el lifting sin agujas</em></h2>
+                <p>
+                    La innovación revolucionaria en estética facial. LIFTERA utiliza
+                    ultrasonido focalizado de alta intensidad (HIFU) para ofrecer resultados
+                    sorprendentes y naturales sin necesidad de agujas.
+                </p>
+                <ul class="featured-benefits">
+                    <li>Actúa en dermis, SMAS y capas de grasa</li>
+                    <li>Redefine el contorno facial</li>
+                    <li>Elimina volúmenes no deseados (papada)</li>
+                    <li>Sin agujas ni tiempo de recuperación</li>
+                    <li>Resultados visibles desde la primera sesión</li>
+                </ul>
+                <a href="liftera.html" class="btn-primary" style="align-self: flex-start; margin-top: 20px;">
+                    Más información <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="philosophy">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="section-label">Nuestra filosofía</span>
+                <h2 class="section-title">¿Por qué <em>elegirnos</em>?</h2>
+                <div style="display: inline-flex; align-items: center; gap: 12px; margin-top: 10px; padding: 10px 24px; background: rgba(197,164,103,0.08); border: 1px solid rgba(197,164,103,0.15);">
+                    <img src="uploads/uploads/2021/12/european.png" alt="European Awards" style="height: 28px;">
+                    <span style="font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);">Mejor Clínica de Europa 2025 — European Awards in Medicine</span>
+                </div>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-number">01</div>
+                    <h3>Personalización</h3>
+                    <p>Cada tratamiento se diseña a medida, adaptado a tu anatomía, piel y objetivos estéticos.</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-number">02</div>
+                    <h3>Tecnología</h3>
+                    <p>Equipos de última generación y técnicas avaladas científicamente para garantizar los mejores resultados.</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-number">03</div>
+                    <h3>Naturalidad</h3>
+                    <p>Buscamos resultados que realcen tu belleza sin artificialidad, respetando tus rasgos únicos.</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-number">04</div>
+                    <h3>Confianza</h3>
+                    <p>Transparencia total en cada proceso, desde la primera consulta hasta el seguimiento posterior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header reveal">
+                <span class="section-label">Testimonios</span>
+                <h2 class="section-title">Lo que dicen <em>nuestras pacientes</em></h2>
+            </div>
+            <div class="testimonials-wrapper">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Desde la primera consulta me sentí en las mejores manos. El resultado
+                            ha sido increíblemente natural, justo lo que buscaba.
+                        </p>
+                        <div class="testimonial-author">María G.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Profesionalidad, cercanía y resultados espectaculares. La Dra. Nildiana
+                            es una artista. No podría estar más contenta.
+                        </p>
+                        <div class="testimonial-author">Laura P.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            El tratamiento Liftera superó mis expectativas. Sin dolor, sin agujas
+                            y con un resultado visible desde el primer día.
+                        </p>
+                        <div class="testimonial-author">Carmen R.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Tenía muchas dudas antes de ir, pero la Dra. Cedeño me explicó todo
+                            con total transparencia. El resultado ha sido espectacular.
+                        </p>
+                        <div class="testimonial-author">Ana M.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Llevo años confiando en esta clínica para mis tratamientos. La atención
+                            es exquisita y los resultados siempre superan mis expectativas.
+                        </p>
+                        <div class="testimonial-author">Sofía L.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Me hice el tratamiento de ojeras y estoy encantada. Se nota pero de
+                            una forma muy natural. Mis amigas no paran de preguntarme qué me he hecho.
+                        </p>
+                        <div class="testimonial-author">Patricia D.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            La clínica es preciosa y el trato es inmejorable. Nildiana te escucha
+                            y te aconseja con total honestidad. 100% recomendable.
+                        </p>
+                        <div class="testimonial-author">Elena V.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Me trataron los labios con ácido hialurónico y quedaron perfectos.
+                            Muy natural, sin exageraciones. Volveré seguro.
+                        </p>
+                        <div class="testimonial-author">Claudia F.</div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-arrow" id="testPrev">←</button>
+                    <button class="testimonial-arrow" id="testNext">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <!-- LOCATIONS -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="locations-header reveal">
+                <span class="section-label">Nuestros centros</span>
+                <h2 class="section-title">Dos clínicas en <em>Asturias</em></h2>
+                <p>Te esperamos en Avilés y Oviedo con las mismas garantías de excelencia, tecnología y atención personalizada.</p>
+            </div>
+            <div class="locations-grid">
+                <!-- AVILÉS -->
+                <div class="location-card reveal">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.5!2d-5.9234!3d43.5567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368c9a5a5a5a5a%3A0x0!2sFrancisco+Orejas+Sierra+1+Avil%C3%A9s!5e0!3m2!1ses!2ses!4v1" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="location-info">
+                        <h3 class="location-city">Avilés</h3>
+                        <span class="location-name">Clínica Dra. Nildiana Cedeño</span>
+                        <ul class="location-details">
+                            <li>Francisco Orejas Sierra 1, bajo derecha</li>
+                            <li>33401 Avilés, Asturias</li>
+                        </ul>
+                        <div class="location-rating">
+                            <span class="score">4,8</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="count">(391 reseñas)</span>
+                        </div>
+                        <br>
+                        <a href="https://maps.google.com/?q=Francisco+Orejas+Sierra+1+Aviles" target="_blank" class="location-btn">Cómo llegar <span>→</span></a>
+                    </div>
+                </div>
+                <!-- OVIEDO -->
+                <div class="location-card reveal">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.5!2d-5.8453!3d43.3614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368c9a5a5a5a5a%3A0x0!2sC.+Ing.+Marquina+11+B+Oviedo!5e0!3m2!1ses!2ses!4v1" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="location-info">
+                        <h3 class="location-city">Oviedo</h3>
+                        <span class="location-name">Centro Médico Argia</span>
+                        <ul class="location-details">
+                            <li>C. Ing. Marquina, 11, B, PB</li>
+                            <li>33004 Oviedo, Asturias</li>
+                        </ul>
+                        <div class="location-rating">
+                            <span class="score">5,0</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="count">(104 reseñas)</span>
+                        </div>
+                        <br>
+                        <a href="https://maps.google.com/?q=C.+Ing.+Marquina+11+B+Oviedo" target="_blank" class="location-btn">Cómo llegar <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta-banner" id="contact">
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2>Tu transformación <em style="font-style:italic;">comienza aquí</em></h2>
+            <p>Visítanos en nuestros dos centros en Asturias</p>
+            <div style="display: flex; gap: 40px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; position: relative;">
+                <div style="text-align: center;">
+                    <div style="font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 4px;">Oviedo</div>
+                    <div style="font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.75); font-weight: 300;">Centro de Medicina Estética</div>
+                </div>
+                <div style="width: 1px; background: rgba(255,255,255,0.25); align-self: stretch;"></div>
+                <div style="text-align: center;">
+                    <div style="font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 4px;">Avilés</div>
+                    <div style="font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.75); font-weight: 300;">Centro de Medicina Estética</div>
+                </div>
+            </div>
+            <a href="tel:+34000000000" class="btn-white">
+                Reservar ahora <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- AWARDS & CERTIFICATIONS -->
+    <section class="awards">
+        <div class="container">
+            <div class="awards-header reveal">
+                <span class="section-label">Reconocimientos</span>
+                <h2 class="section-title">Premios y <em>certificaciones</em></h2>
+            </div>
+            <div class="awards-row">
+                <div class="award-item reveal">
+                    <div class="award-img">
+                        <img src="uploads/uploads/2021/12/MCE_2023_Sello_Nildiana-Cedeno.png" alt="Medicina y Cirugía Estética Siglo XXI">
+                    </div>
+                    <span class="award-name">Premios Nacionales Siglo XXI</span>
+                </div>
+                <div class="awards-divider"></div>
+                <div class="award-item reveal">
+                    <div class="award-img">
+                        <img src="uploads/uploads/2021/12/Premios-La-Razon_Mesa-de-trabajo-1.png" alt="Mejor Clínica Medicina Estética 2024">
+                    </div>
+                    <span class="award-name">Mejor Clínica Estética Facial 2024</span>
+                </div>
+                <div class="awards-divider"></div>
+                <div class="award-item reveal">
+                    <div class="award-img">
+                        <img src="uploads/uploads/2021/12/fleming.jpg" alt="Premios Dr. Fleming">
+                    </div>
+                    <span class="award-name">Premio Dr. Fleming V Edición</span>
+                </div>
+                <div class="awards-divider"></div>
+                <div class="award-item reveal">
+                    <div class="award-img">
+                        <img src="uploads/uploads/2021/12/european.png" alt="The European Awards">
+                    </div>
+                    <span class="award-name">European Awards Mejor Clínica 2025</span>
+                </div>
+                <div class="awards-divider"></div>
+                <div class="award-item reveal">
+                    <div class="award-img square">
+                        <img src="uploads/uploads/2021/12/premio-estetoscopio-oro.png" alt="Premio Estetoscopio de Oro">
+                    </div>
+                    <span class="award-name">Estetoscopio de Oro a la Innovación</span>
+                </div>
+                <div class="awards-divider"></div>
+                <div class="award-item reveal">
+                    <div class="award-img square">
+                        <img src="uploads/uploads/2021/12/seme.jpeg" alt="SEME - Sociedad Española de Medicina Estética">
+                    </div>
+                    <span class="award-name">Miembro SEME desde 2014</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><img src="dranildianacedeno-logo-250x26.png" alt="Dra. Nildiana Cedeño" style="height: 20px; filter: brightness(0) invert(1); margin-bottom: 8px;"></div>
+                    <p>
+                        Clínica de medicina estética en Asturias. Tratamientos personalizados
+                        con la última tecnología para resultados naturales y duraderos.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Tratamientos</h4>
+                    <ul>
+                        <li><a href="#">Liftera</a></li>
+                        <li><a href="#">Neuromoduladores</a></li>
+                        <li><a href="#">Ojeras</a></li>
+                        <li><a href="#">Labios</a></li>
+                        <li><a href="#">Hilos tensores</a></li>
+                        <li><a href="#">Peeling químico</a></li>
+                        <li><a href="#">Ver todos →</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Clínica</h4>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Opiniones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nuestros centros</h4>
+                    <ul>
+                        <li><a href="#" style="color: var(--gold);">Oviedo</a></li>
+                        <li><a href="#">Centro de Medicina Estética</a></li>
+                        <li style="margin-bottom: 20px;"><a href="#">info@dranildianacedeno.es</a></li>
+                        <li><a href="#" style="color: var(--gold);">Avilés</a></li>
+                        <li><a href="#">Centro de Medicina Estética</a></li>
+                        <li><a href="#">Contactar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Dra. Nildiana Cedeño. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="#" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY AWARD STRIP -->
+    <div class="award-strip" id="stickyAward">
+        <div class="award-strip-inner">
+            <span class="award-strip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+            </span>
+            <span class="award-strip-text">Mejor Clínica de Medicina Estética de Europa 2025</span>
+            <span class="award-strip-separator"></span>
+            <span class="award-strip-sub">European Awards in Medicine</span>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+                // Start slider after preloader
+                startSlider();
+            }, 1500);
+        });
+
+        // ═══════════════════════════════════════════
+        // HERO SLIDER
+        // ═══════════════════════════════════════════
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const progress = document.getElementById('sliderProgress');
+        const counterEl = document.getElementById('sliderCurrent');
+        const sliderEl = document.getElementById('heroSlider');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+        let autoplayTimer = null;
+
+        function goToSlide(index) {
+            if (index === currentSlide) return;
+            const prevIndex = currentSlide;
+
+            // Remove all states and reset inline styles
+            slides.forEach(s => {
+                s.classList.remove('active', 'leaving');
+                s.style.opacity = '';
+                s.style.transition = '';
+            });
+
+            // Leaving
+            slides[prevIndex].classList.add('leaving');
+
+            // Activate new
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+
+            // Dots & counter
+            dots.forEach(d => d.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+            counterEl.textContent = String(currentSlide + 1).padStart(2, '0');
+
+            // Progress bar
+            restartProgress();
+
+            // Cleanup
+            setTimeout(() => {
+                slides[prevIndex].classList.remove('leaving');
+            }, 2000);
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % totalSlides);
+        }
+
+        function prevSlide() {
+            goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        }
+
+        function restartProgress() {
+            progress.classList.remove('running');
+            void progress.offsetWidth;
+            progress.classList.add('running');
+        }
+
+        let preFadeTimer = null;
+
+        function startAutoplay() {
+            stopAutoplay();
+            restartProgress();
+            // Start fading out current slide early at 4.5s
+            preFadeTimer = setTimeout(() => {
+                slides[currentSlide].style.opacity = '0.4';
+                slides[currentSlide].style.transition = 'opacity 2.5s ease-in-out';
+            }, 4500);
+            autoplayTimer = setTimeout(function tick() {
+                nextSlide();
+                // Schedule pre-fade for next cycle
+                preFadeTimer = setTimeout(() => {
+                    slides[currentSlide].style.opacity = '0.4';
+                    slides[currentSlide].style.transition = 'opacity 2.5s ease-in-out';
+                }, 4500);
+                autoplayTimer = setTimeout(tick, 7000);
+            }, 7000);
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) { clearTimeout(autoplayTimer); autoplayTimer = null; }
+            if (preFadeTimer) { clearTimeout(preFadeTimer); preFadeTimer = null; }
+        }
+
+        function startSlider() {
+            startAutoplay();
+        }
+
+        // Dot click
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
+                startAutoplay();
+            });
+        });
+
+        // Arrow click
+        document.getElementById('sliderNext').addEventListener('click', () => {
+            nextSlide(); startAutoplay();
+        });
+        document.getElementById('sliderPrev').addEventListener('click', () => {
+            prevSlide(); startAutoplay();
+        });
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { nextSlide(); startAutoplay(); }
+            if (e.key === 'ArrowLeft') { prevSlide(); startAutoplay(); }
+        });
+
+        // Touch/swipe
+        let touchStartX = 0;
+        sliderEl.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        sliderEl.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide(); else prevSlide();
+                startAutoplay();
+            }
+        }, { passive: true });
+
+        // ═══════════════════════════════════════════
+        // MOBILE MENU
+        // ═══════════════════════════════════════════
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Toggle mobile submenus
+        mobileMenu.querySelectorAll('.mobile-menu-parent').forEach(parent => {
+            parent.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sub = parent.nextElementSibling;
+                if (sub) sub.classList.toggle('open');
+            });
+        });
+
+        // ═══════════════════════════════════════════
+        // NAVBAR / REVEAL / SCROLL
+        // ═══════════════════════════════════════════
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // ═══════════════════════════════════════════
+        // TESTIMONIALS SLIDER
+        // ═══════════════════════════════════════════
+        const testSlider = document.getElementById('testimonialSlider');
+        if (testSlider) {
+            const cardWidth = 350 + 24; // card width + gap
+            document.getElementById('testPrev').addEventListener('click', () => {
+                testSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            });
+            document.getElementById('testNext').addEventListener('click', () => {
+                testSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
