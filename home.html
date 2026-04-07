@@ -563,7 +563,6 @@
             pointer-events: none;
             z-index: 1;
             opacity: 0;
-            transition: opacity 2.5s ease-in-out;
         }
 
         .slide.active {
@@ -574,9 +573,9 @@
 
         .slide.leaving {
             z-index: 2;
-            opacity: 0;
-            transition: opacity 2.5s ease-in-out;
+            opacity: 1;
         }
+
 
         /* Background image + Ken Burns */
         .slide-bg {
@@ -1089,6 +1088,14 @@
             padding: 14px 0;
             text-align: center;
             box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
+        }
+
+        .award-strip.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .award-strip-inner {
@@ -2252,7 +2259,22 @@
             }
 
             .nav {
-                padding: 20px 24px;
+                padding: 16px 24px;
+            }
+
+            .nav.scrolled {
+                background: rgba(26, 26, 26, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 12px 24px;
+                box-shadow: 0 1px 20px rgba(0,0,0,0.2);
+            }
+
+            .nav.scrolled .nav-logo img {
+                filter: brightness(0) invert(1);
+            }
+
+            .nav.scrolled .nav-toggle span {
+                background: var(--white);
             }
 
             .nav-links {
@@ -3317,6 +3339,13 @@
         };
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // Award strip: show after 50% scroll
+        const stickyAward = document.getElementById('stickyAward');
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            stickyAward.classList.toggle('visible', scrollPercent >= 0.5);
+        });
 
         // ═══════════════════════════════════════════
         // TESTIMONIALS SLIDER
